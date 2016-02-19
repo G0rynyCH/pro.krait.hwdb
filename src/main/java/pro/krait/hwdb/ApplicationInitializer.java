@@ -27,6 +27,6 @@ public class ApplicationInitializer implements WebApplicationInitializer{
         //В диспетчер сервлетов добавляем наш контекст
         ServletRegistration.Dynamic servlet = servletContext.addServlet(DISPATCHER, new DispatcherServlet(ctx));
         servlet.addMapping("/");
-        servlet.setLoadOnStartup(1);                         //В слае наличия нескольких сервлетов указывается порядок их инициализации
+        servlet.setLoadOnStartup(1);                         //В случае наличия нескольких сервлетов указывается порядок их инициализации
     }
 }
