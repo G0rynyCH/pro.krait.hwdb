@@ -41,7 +41,7 @@ public class DatabaseConfig {
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(dataSource());
         em.setPackagesToScan(env.getRequiredProperty("db.entity.package"));
-        em.setJpaVendorAdapter(new HibernateJpaVendorAdapter());  //Сообзаем, что в качестве JPA-адаптера будет выступать Hibernate
+        em.setJpaVendorAdapter(new HibernateJpaVendorAdapter());  //Сообщаем, что в качестве JPA-адаптера будет выступать Hibernate
         em.setJpaProperties(getHibernateProperties());
         return em;
     }
@@ -77,7 +77,7 @@ public class DatabaseConfig {
         return manager;
     }
 
-    private Properties getHibernateProperties() {
+    public Properties getHibernateProperties() {
 
         try {
             Properties properties = new Properties();
