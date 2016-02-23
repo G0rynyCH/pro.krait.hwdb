@@ -26,15 +26,21 @@ public class UserController {
     }
 
     private User createNewUser() {
-        User user = new User();
-        user.setId(1);
-        user.setSurname("Gorin");
-        user.setName("Sergey");
-        user.setFatherName("Stanislavovich");
-        user.setLogin("agss");
-        user.setPasswd("12345");
-        user.setPhoneNumber("5552222");
-        user.setEmail("admin@skywell.com.ua");
+        String surname = "Gorin";
+        String name = "Sergey";
+        String fatherName = "Stanislavovich";
+        String login = "agss";
+        String passwd = "12345";
+        String phoneNumber = "5552233";
+        String email = "S.S.Gorin@gmail.com";
+        User user = new User(surname, name, fatherName, login, passwd, phoneNumber, email);
+
         return user;
+    }
+
+    private Boolean verifyString(String str){
+        Boolean result = false;
+        if (str.matches("^\\w+$")) result = true;
+        return result;
     }
 }

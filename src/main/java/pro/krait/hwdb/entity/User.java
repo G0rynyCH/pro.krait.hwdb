@@ -41,9 +41,17 @@ public class User {
     public User() {
     }
 
-    public long getId() {
-        return id;
+    public User(String surname, String name, String fatherName, String login, String passwd, String phoneNumber, String email) {
+        this.surname = surname;
+        this.name = name;
+        this.fatherName = fatherName;
+        this.login = login;
+        this.passwd = passwd;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
     }
+
+    public long getId() { return id; }
 
     public void setId(long id) {
         this.id = id;
@@ -54,7 +62,9 @@ public class User {
     }
 
     public void setSurname(String surname) {
-        this.surname = surname;
+        if (surname.matches("^\\D+$")){                     //Регулярное выражение, проверяющее строку на содержание цифр или не является ли строка пустой
+            this.surname = surname;
+        } else System.out.println("Некорректно заполнено поле. Фамилия не должна содержать цифры, пробелы или быть пустой");
     }
 
     public String getName() {
@@ -62,7 +72,9 @@ public class User {
     }
 
     public void setName(String name) {
-        this.name = name;
+
+        if (name.matches("^\\D+$")) this.name = name;
+        else System.out.printf("Некорректно заполнено поле. Имя не должно содержать цифры, пробелы или быть пустой");
     }
 
     public String getFatherName() {
@@ -70,7 +82,10 @@ public class User {
     }
 
     public void setFatherName(String fatherName) {
-        this.fatherName = fatherName;
+
+        if (fatherName.matches("^\\D*$")) this.fatherName = fatherName;
+        else System.out.println("Некорректно заполнено поле. Отчество не должно содержать цифры");
+
     }
 
     public String getLogin() {

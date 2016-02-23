@@ -70,7 +70,7 @@ public class DatabaseConfig {
 
     //Конфигурируем JPA Api Transaction
     @Bean
-    public PlatformTransactionManager platformTransactionManager(){
+    public PlatformTransactionManager transactionManager(){                     //Имя метода должно быть именно такое. Иначе - ошибка
         JpaTransactionManager manager = new JpaTransactionManager();
         manager.setEntityManagerFactory(entityManagerFactory().getObject());
 
